@@ -20,13 +20,6 @@ export default function Home() {
     setIsVertical(window.innerHeight > window.innerWidth);
   }, []);
 
-  const data = JSON.parse({
-    "CO2_emissions_reduction_kg": 618.7187448675475,
-    "energy_reduction_percentage": 32.0750526547908,
-    "indoor_air_pollution_reduction_percentage": 15.151788060404014,
-    "site_name_en": "Fiverr",
-    "site_name_local": "\u05e4\u05d9\u05d9\u05d1\u05e8"
-  });
 
   return (
     <div className={`home ${isHebrew ? "hebrew" : ""}`}>
