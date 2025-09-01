@@ -1,7 +1,7 @@
 "use client";
 import "./Home.scss";
 
-import { AQI, AirQuality, Co2, IvsOAirPollition, Fiverr } from "@/components/Cards";
+import { AQI, AirQuality, Co2, IvsOAirPollition, CompanyCard } from "@/components/Cards";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
           <AirQuality isHebrew={isHebrew} />
           <Co2 isHebrew={isHebrew} />
           <IvsOAirPollition isHebrew={isHebrew} />
-          <Fiverr isHebrew={isHebrew} />
+          <CompanyCard isHebrew={isHebrew} />
         </div>
       </div>
     </div>

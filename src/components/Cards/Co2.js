@@ -9,7 +9,7 @@ export default function AirQuality({ isHebrew }) {
     title: "הפחתת פליטות גזי חממה",
     subtitle: "מעודכן"
   } : {
-    title: "CO2 Emissions <br />Reduction",
+    title: 'CO2 Emissions <br/> Reduction',
     subtitle: "Updated daily"
   };
 
@@ -27,8 +27,8 @@ export default function AirQuality({ isHebrew }) {
     return (
         <div className="urecsys-lobby--card co2">
             <div className="urecsys-lobby--card-header">
-                <div className="urecsys-title">
-                    {texts.title}
+                <div className="urecsys-title" 
+                     dangerouslySetInnerHTML={{ __html: texts.title }}>
                 </div>
                 <div className="urecsys-subtitle">
                     {texts.subtitle}
