@@ -1,0 +1,96 @@
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+
+  --primary-text: #000000;
+  --secondary-text: #444444;
+  --tertiary-text: #FFFFFF;
+
+  --good-color: #65B868;
+  --poor-color: #F80000;
+
+  --font-assistant: "Assistant", sans-serif;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-size: 10px;
+  font-weight: 400;
+
+  min-height: 100vh;
+}
+
+body {
+  color: var(--primary-text);
+  background: var(--background);
+  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+}
+
+footer{
+  margin-top: auto;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.urecsys{
+  &-title{
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  &-subtitle{
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--secondary-text);
+
+    &.centered{
+      text-align: center;
+    }
+  }
+
+  &-img {
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.hebrewText {
+  font-family: var(--font-assistant), Arial, Helvetica, sans-serif;
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

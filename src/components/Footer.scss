@@ -1,0 +1,25 @@
+.footer{
+  &-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 6rem;
+    background-color: var(--foreground);
+
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--tertiary-text);
+  }
+
+  &-right{
+    display: flex;
+    align-items: center;
+    gap: 3.8rem;
+  }
+
+  &-left{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}

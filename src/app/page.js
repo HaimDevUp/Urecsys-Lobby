@@ -1,95 +1,44 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import "./Home.scss";
+
+import { AQI, AirQuality, Co2, IvsOAirPollition, Fiverr } from "@/components/Cards";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isVertical, setIsVertical] = useState(false);
+  const [isHebrew, setIsHebrew] = useState(false);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    setIsVertical(window.innerHeight > window.innerWidth);
+
+    // קריאת פרמטרים מה-URL
+    const urlParams = new URLSearchParams(window.location.search);
+    setIsHebrew(urlParams.get("isHebrew") === "true");
+  }, []); // dependency ריק - רק פעם אחת
+
+  useEffect(() => {
+    setIsVertical(window.innerHeight > window.innerWidth);
+  }, []);
+
+  const data = JSON.parse({
+    "CO2_emissions_reduction_kg": 618.7187448675475,
+    "energy_reduction_percentage": 32.0750526547908,
+    "indoor_air_pollution_reduction_percentage": 15.151788060404014,
+    "site_name_en": "Fiverr",
+    "site_name_local": "\u05e4\u05d9\u05d9\u05d1\u05e8"
+  });
+
+  return (
+    <div className={`home ${isHebrew ? "hebrew" : ""}`}>
+      <div className={`urecsys-lobby--cards ${isVertical ? "vertical" : ""}`}>
+        <AQI isHebrew={isHebrew} />
+        <div className="urecsys-lobby--cards-right">
+          <AirQuality isHebrew={isHebrew} />
+          <Co2 isHebrew={isHebrew} />
+          <IvsOAirPollition isHebrew={isHebrew} />
+          <Fiverr isHebrew={isHebrew} />
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }

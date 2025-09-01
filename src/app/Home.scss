@@ -1,0 +1,18 @@
+.home {
+  margin: auto 0;
+
+  &.hebrew {
+    direction: rtl;
+    text-align: right;
+
+    .urecsys-title,
+    .urecsys-subtitle {
+      font-family: var(--font-assistant), Arial, Helvetica, sans-serif;
+    }
+
+    th {
+      font-family: var(--font-assistant), Arial, Helvetica, sans-serif;
+    }
+
+  }
+}

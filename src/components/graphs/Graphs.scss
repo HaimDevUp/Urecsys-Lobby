@@ -1,0 +1,83 @@
+.urecsys-comparison-chart {
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th,
+        td {
+            padding: 1rem;
+        }
+
+        thead {
+            font-weight: 400;
+            font-size: 1.6rem;
+
+            th {
+                padding-bottom: 2rem;
+
+                &:first-child {
+                    width: 20%;
+                }
+            }
+        }
+
+        tbody {
+            font-weight: 300;
+            font-size: 1.2rem;
+
+        }
+    }
+
+    text-align: left;
+
+
+    &--bar {
+        position: relative;
+        border-radius: 0 10px 10px 0;
+
+        &::before {
+            content: attr(data-value);
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translate(-100%, -50%);
+            font-size: 12px;
+            white-space: nowrap;
+        }
+    }
+
+    &.hebrew {
+        text-align: right;
+
+        .urecsys-comparison-chart--bar {
+            border-radius: 10px 0 0 10px;
+
+            &::before {
+                left: auto;
+                right: -1rem;
+                transform: translate(100%, -50%);
+            }
+        }
+
+    }
+}
+
+
+
+.urecsys-chart-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.urecsys-co2-chart {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+
+    &--percentage {
+        font-size: 4.8rem;
+        font-weight: 300;
+    }
+}

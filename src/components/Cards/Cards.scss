@@ -1,0 +1,170 @@
+.urecsys-lobby- {
+    &-cards {
+        display: grid;
+        grid-template-columns: 2fr 4fr;
+        gap: 2rem;
+        padding: 5rem 6rem;
+
+        &-right {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr 2fr;
+            gap: 2rem;
+        }
+
+        &.vertical {
+            grid-template-columns: 1fr;
+
+            .urecsys-lobby--card {
+                &.co2 {
+                    grid-column: span 1;
+                }
+
+                &.air-quality {
+                    grid-column: span 3;
+                }
+            }
+
+            .urecsys-aqi--graph-img-wrapper {
+                width: 33%;
+                padding-top: 50%;
+            }
+        }
+    }
+
+    &-card {
+        box-shadow: 0px 0px 20px 0px rgba(94, 94, 94, 0.2);
+        border-radius: 20px;
+        padding: 4rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: space-between;
+
+
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+
+        &.in-vs-out-air-pollution {
+            grid-column: span 3;
+        }
+
+        &.fiverr {
+            grid-column: span 1;
+            padding: 0;
+        }
+
+        &.air-quality,
+        &.co2 {
+            grid-column: span 2;
+        }
+
+
+
+
+    }
+
+    &-fiverr {
+        &-content {
+            padding: 3.5rem 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            height: 100%;
+
+            p {
+                margin-top: auto;
+            }
+
+            img {
+                width: 17rem;
+            }
+
+            &.hebrew {
+                img {
+                    margin-right: auto;
+                }
+            }
+        }
+
+        &-footer {
+            width: 100%;
+            padding-top: 75%;
+            position: relative;
+        }
+    }
+}
+
+.urecsys-aqi {
+    &--header {
+        position: relative;
+        padding-left: 1.6rem;
+
+        &.good,
+        &.poor {
+            &::before {
+                content: "";
+                background: var(--poor-color);
+                width: 1.6rem;
+                height: 1.6rem;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translate(-50%, -50%);
+
+            }
+        }
+
+        &.good {
+            &::before {
+                background: var(--good-color);
+            }
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 300;
+            line-height: 1;
+        }
+
+        &.hebrew {
+            padding-right: 1.6rem;
+            padding-left: 0;
+
+            &.good,
+            &.poor {
+                &::before {
+                    left: auto;
+                    right: 0;
+                    transform: translate(50%, -50%);
+
+                }
+            }
+        }
+    }
+
+    &--graph {
+        display: flex;
+
+
+        &-img-wrapper {
+            width: 65%;
+            padding-top: 100%;
+            position: relative;
+            margin: 0 auto;
+
+        }
+
+
+    }
+
+
+}
